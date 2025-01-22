@@ -23,5 +23,28 @@ export const OracleDatabase =
 
       const result = await connection.execute(sql);
       return result.rows;
-    }
+    },
+
+    async getData(tabelename: string, where: string): Promise<unknown[][]> {
+      return this.query(`SELECT *
+                         FROM ${tabelename}
+                         WHERE ${where}`);
+    },
+
+    async insertData(tabelename: string, values: string): Promise<unknown[][]> {
+      return this.query(`INSERT INTO ${tabelename}
+                         VALUES (${values})`);
+    },
+
+    async updateData(tabelename: string, set: string, where: string): Promise<unknown[][]> {
+      return this.query(`UPDATE ${tabelename}
+                         SET ${set}
+                         WHERE ${where}`);
+    },
+
+    async deleteData(tabelename: string, where: string): Promise<unknown[][]> {
+      return this.query(`DELETE
+                         FROM ${tabelename}
+                         WHERE ${where}`);
+    },
   }
