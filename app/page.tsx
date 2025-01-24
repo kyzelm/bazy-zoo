@@ -1,12 +1,12 @@
-import styles from "./page.module.css";
-import Link from "next/link";
+import "./page.module.css";
 
 export default function Home() {
   return (
-    <main className={styles.page}>
-      Main content
-      <br/>
-      <Link href={"/about"}>About</Link>
+    <main>
+      <h1>Zoo</h1>
+      <h3>
+        Panel administracyjny zoo.
+      </h3>
     </main>
   );
 }

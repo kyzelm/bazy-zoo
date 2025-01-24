@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+
+:root {
+  --color-bg: #FFE8B6;
+  --color-bg-alt: #5B913B;
+  --color-text: #111;
+  --color-alt: #77B254;
+  --color-alt-2: #D99D81;
+
+  --font-family: 'Comfortaa';
+
+  font-size: clamp(12px, 1.5dvw, 16px);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family), sans-serif;
+  min-height: 100dvh;
+  width: 100dvw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+h1 {
+  font-size: 3.027rem;
+  font-weight: 700;
+  letter-spacing: -0.1rem;
+}
+
+h2 {
+  font-size: 1.802rem;
+  font-weight: 700;
+  letter-spacing: -0.1rem;
+}
+
+h3 {
+  font-size: 1.602rem;
+  font-weight: 400;
+}
+
+h4 {
+  font-size: 1.424rem;
+  font-weight: 400;
+}
+
+h5 {
+  font-size: 1.266rem;
+  font-weight: 400;
+}
+
+h6 {
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 2.5rem;
+  border-radius: 2rem;
+  border: 0.2rem dashed var(--color-alt-2);
+}

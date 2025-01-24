@@ -1,0 +1,11 @@
+.navlink {
+  text-decoration: underline;
+  text-underline-offset: -0.1rem;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 0.1s, text-underline-offset 0.3s;
+
+  &.active, &:hover {
+    text-underline-offset: 0.3rem;
+    text-decoration-color: unset;
+  }
+}

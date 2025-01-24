@@ -22,24 +22,36 @@ export const OracleDatabase =
       }
 
       const result = await connection.execute(sql);
+      connection.commit();
       return result.rows;
     },
 
-    async getData(tabelename: string, where: string): Promise<unknown[][]> {
-      return this.query(`SELECT *
-                         FROM ${tabelename}
-                         WHERE ${where}`);
+    async getData(tabelename: string, data: string = "*", where: string): Promise<unknown[][]> {
+      let query: string = `SELECT ${data}
+                           FROM ${tabelename}`;
+
+      if (where) {
+        query += ` WHERE ${where}`;
+      }
+
+      return this.query(query);
     },
 
-    async insertData(tabelename: string, values: string): Promise<unknown[][]> {
+    async insertData(tabelename: string, names: string, values: string): Promise<unknown[][]> {
       return this.query(`INSERT INTO ${tabelename}
+                             (${names})
                          VALUES (${values})`);
     },
 
     async updateData(tabelename: string, set: string, where: string): Promise<unknown[][]> {
-      return this.query(`UPDATE ${tabelename}
-                         SET ${set}
-                         WHERE ${where}`);
+      let query: string = `UPDATE ${tabelename}
+                           SET ${set}`;
+
+      if (where) {
+        query += ` WHERE ${where}`;
+      }
+
+      return this.query(query);
     },
 
     async deleteData(tabelename: string, where: string): Promise<unknown[][]> {
