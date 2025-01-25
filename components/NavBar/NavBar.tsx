@@ -10,10 +10,8 @@ interface LinkProps {
 const links: LinkProps[] = [
   {href: "/", children: "Start"},
   {href: "/zwierzeta", children: "Zwierzęta"},
-  {href: "/magazyn", children: "Magazyn"},
   {href: "/pracownicy", children: "Pracownicy"},
-  {href: "/infrastuktura", children: "Infrastruktura"},
-  {href: "/oferta", children: "Oferta"},
+  {href: "/wybiegi", children: "Wybiegi"},
 ];
 
 export default function NavBar(): JSX.Element {

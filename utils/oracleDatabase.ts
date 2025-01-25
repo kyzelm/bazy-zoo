@@ -16,47 +16,15 @@ try {
 
 export const OracleDatabase =
   {
-    async query(sql: string): Promise<unknown[][]> {
+    async query(sql: string): Promise<(string | number)[][]> {
       if (!connection) {
         throw new Error('Not connected to Oracle database');
       }
 
       const result = await connection.execute(sql);
+      console.log(result.rows);
+
       connection.commit();
       return result.rows;
-    },
-
-    async getData(tabelename: string, data: string = "*", where: string): Promise<unknown[][]> {
-      let query: string = `SELECT ${data}
-                           FROM ${tabelename}`;
-
-      if (where) {
-        query += ` WHERE ${where}`;
-      }
-
-      return this.query(query);
-    },
-
-    async insertData(tabelename: string, names: string, values: string): Promise<unknown[][]> {
-      return this.query(`INSERT INTO ${tabelename}
-                             (${names})
-                         VALUES (${values})`);
-    },
-
-    async updateData(tabelename: string, set: string, where: string): Promise<unknown[][]> {
-      let query: string = `UPDATE ${tabelename}
-                           SET ${set}`;
-
-      if (where) {
-        query += ` WHERE ${where}`;
-      }
-
-      return this.query(query);
-    },
-
-    async deleteData(tabelename: string, where: string): Promise<unknown[][]> {
-      return this.query(`DELETE
-                         FROM ${tabelename}
-                         WHERE ${where}`);
     },
   }
